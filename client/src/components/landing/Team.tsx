@@ -33,7 +33,14 @@ export default function Team() {
 
       <div className="flex flex-wrap justify-center gap-8">
         {teamMembers.map((member, index) => (
-          <div key={index} className="group w-[300px] h-[400px] [perspective:1000px]">
+          <motion.div 
+            key={index} 
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="group w-[300px] h-[400px] [perspective:1000px]"
+          >
             <div className="relative w-full h-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xl rounded-2xl">
               
               {/* Front */}
