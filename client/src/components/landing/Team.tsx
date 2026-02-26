@@ -2,22 +2,40 @@ import { motion } from "framer-motion";
 
 const teamMembers = [
   {
-    name: "Kasun Jayasuriya",
-    role: "Founder & CEO",
-    favSpot: "Pidurangala Rock",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400&h=400"
+    name: "Sanula Rajapaksha",
+    role: "Team Leader & Full-Stack Developer",
+    favSpot: "Front-end, back-end, and databases",
+    image: "/Images/sanula-rajapaksha.jpeg"
   },
   {
-    name: "Dilani Silva",
-    role: "Head of Product",
-    favSpot: "Secret Beach, Mirissa",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400&h=400"
+    name: "Minodya Jayasinghe",
+    role: "Marketing & Front-End Support",
+    favSpot: "Social media and UI design support",
+    image: "/Images/minodya-jayasinghe.jpeg"
   },
   {
-    name: "Arjun Perera",
-    role: "Lead Developer",
-    favSpot: "Horton Plains",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400"
+    name: "Rizlan Sinnan",
+    role: "Front-End Developer",
+    favSpot: "Responsive, user-friendly interfaces",
+    image: "/Images/rizlan-sinnan.png"
+  },
+  {
+    name: "Vinuka Shenul",
+    role: "Front-End & Marketing Support",
+    favSpot: "UI development and marketing activities",
+    image: "/Images/vinuka-shenul.jpeg"
+  },
+  {
+    name: "Ammar Abdur",
+    role: "Back-End Developer",
+    favSpot: "Server logic, APIs, and performance",
+    image: "/Images/ammar-abdur.jpeg"
+  },
+  {
+    name: "Venuja Dulen",
+    role: "Front-End & Marketing Support",
+    favSpot: "UI design and social engagement",
+    image: "/Images/venuja-dulen.jpeg"
   }
 ];
 
@@ -64,7 +82,7 @@ export default function Team() {
               </div>
 
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
