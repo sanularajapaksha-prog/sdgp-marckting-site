@@ -47,7 +47,7 @@ export default function Navbar() {
               href={link.href}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-primary",
-                scrolled ? "text-foreground" : "text-foreground md:text-white md:hover:text-white/80" // Dark text on white nav, white text on transparent (assuming dark hero overlay) - actually hero bg might be light or dark. Let's assume dark overlay on hero image.
+                scrolled ? "text-foreground" : "text-foreground/90 hover:text-foreground"
               )}
             >
               {link.name}
@@ -68,7 +68,7 @@ export default function Navbar() {
           className="md:hidden text-foreground"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X /> : <Menu className={scrolled ? "text-foreground" : "text-white"} />}
+          {mobileMenuOpen ? <X /> : <Menu className="text-foreground" />}
         </button>
       </div>
 
