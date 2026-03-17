@@ -26,6 +26,7 @@ import Blog from "@/components/landing/Blog";
 import Pricing from "@/components/landing/Pricing";
 import Gallery from "@/components/landing/Gallery";
 import LiveFeed from "@/components/landing/LiveFeed";
+import Subscribe from "@/components/landing/Subscribe";
 import Team from "@/components/landing/Team";
 import Footer from "@/components/landing/Footer";
 
@@ -60,6 +61,7 @@ export default function Home() {
       <Pricing />
       <Gallery />
       <LiveFeed />
+      <Subscribe />
       <Team />
       <Footer />
     </div>
