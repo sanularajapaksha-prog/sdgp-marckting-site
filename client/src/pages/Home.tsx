@@ -25,6 +25,7 @@ import TripPlanner from "@/components/landing/TripPlanner";
 import Blog from "@/components/landing/Blog";
 import Pricing from "@/components/landing/Pricing";
 import Gallery from "@/components/landing/Gallery";
+import LiveFeed from "@/components/landing/LiveFeed";
 import Team from "@/components/landing/Team";
 import Footer from "@/components/landing/Footer";
 
@@ -58,6 +59,7 @@ export default function Home() {
       <Blog />
       <Pricing />
       <Gallery />
+      <LiveFeed />
       <Team />
       <Footer />
     </div>
