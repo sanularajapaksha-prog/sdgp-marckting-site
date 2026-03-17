@@ -100,7 +100,7 @@ export default function Comparison() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
-  const groups = [...new Set(features.map((f) => f.group))];
+  const groups = Array.from(new Set(features.map((feature) => feature.group)));
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">

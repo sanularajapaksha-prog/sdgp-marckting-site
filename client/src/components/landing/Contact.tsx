@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Mail, MessageSquare, User, Send, Check, MapPin, Clock, Phone, HelpCircle } from "lucide-react";
+import { api } from "@/lib/api";
 
 const contactReasons = [
   "General Enquiry",
@@ -65,13 +66,25 @@ export default function Contact() {
     return newErrors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setErrors({});
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1600);
+    try {
+      await api.sendContact({
+        name: form.name,
+        email: form.email,
+        subject: form.reason || "General Enquiry",
+        message: form.message,
+      });
+      setSubmitted(true);
+    } catch (err: any) {
+      setErrors({ message: err.message || "Failed to send. Please try again." });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const update = (field: string, value: string) => {

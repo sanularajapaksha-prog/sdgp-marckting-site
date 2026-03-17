@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Mail, Sparkles, Users, ArrowRight, Check, Gift, Zap, Star } from "lucide-react";
+import { api } from "@/lib/api";
 
 const perks = [
   { icon: Gift, text: "3 months Premium — free", color: "text-secondary" },
@@ -30,7 +31,7 @@ export default function Waitlist() {
 
   const progressPct = Math.round((takenSpots / totalSpots) * 100);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes("@")) {
       setError("Please enter a valid email address.");
@@ -38,10 +39,18 @@ export default function Waitlist() {
     }
     setError("");
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await api.joinWaitlist({ email });
       setSubmitted(true);
-    }, 1400);
+    } catch (err: any) {
+      if (err.message?.includes("already")) {
+        setError("This email is already on the waitlist!");
+      } else {
+        setError(err.message || "Something went wrong. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

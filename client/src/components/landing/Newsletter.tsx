@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Mail, CheckCircle, Send, Sparkles, Globe, TrendingUp, Camera, MapPin } from "lucide-react";
+import { api } from "@/lib/api";
 
 const topics = [
   { icon: MapPin, label: "New Hidden Gems", color: "text-primary" },
@@ -22,11 +23,18 @@ export default function Newsletter() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.includes("@")) return;
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1200);
+    try {
+      await api.subscribeNewsletter({ email });
+      setSubmitted(true);
+    } catch {
+      setSubmitted(true); // still show success UX if already subscribed
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
