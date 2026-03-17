@@ -35,7 +35,7 @@ const photos = [
     location: "Sigiriya Rock Fortress",
     caption: "Sunrise from the top — nothing compares. Found this exact spot using Seygo! 🌄",
     likes: 1842,
-    emoji: "🏔️",
+    photo: "https://images.unsplash.com/photo-1567183803791-0c69e85b6cbf?w=800&h=600&fit=crop&q=80",
     gradient: "from-amber-400 to-orange-600",
     size: "large",
     category: "nature",
@@ -48,7 +48,7 @@ const photos = [
     location: "Secret Waterfall, Ella",
     caption: "Seygo showed us this hidden gem — had it all to ourselves for 2 hours!",
     likes: 967,
-    emoji: "💦",
+    photo: "https://images.unsplash.com/photo-1576941088953-6f9e03723440?w=800&h=600&fit=crop&q=80",
     gradient: "from-teal-400 to-cyan-600",
     size: "small",
     category: "nature",
@@ -61,7 +61,7 @@ const photos = [
     location: "Galle Fort at Dusk",
     caption: "My hometown looks different through a traveler's eyes. Proud to be on Seygo's team.",
     likes: 2341,
-    emoji: "🏛️",
+    photo: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&h=600&fit=crop&q=80",
     gradient: "from-purple-400 to-indigo-600",
     size: "small",
     category: "culture",
@@ -74,7 +74,7 @@ const photos = [
     location: "Knuckles Mountain Range",
     caption: "Day 3 of our Knuckles trek. Seygo offline maps saved us twice already.",
     likes: 1123,
-    emoji: "🌿",
+    photo: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&h=600&fit=crop&q=80",
     gradient: "from-green-400 to-emerald-700",
     size: "medium",
     category: "nature",
@@ -87,7 +87,7 @@ const photos = [
     location: "Jaffna Night Market",
     caption: "The food here is unlike anything in the south — Seygo's food filter is 🔥",
     likes: 734,
-    emoji: "🍛",
+    photo: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop&q=80",
     gradient: "from-rose-400 to-pink-600",
     size: "small",
     category: "food",
@@ -100,7 +100,7 @@ const photos = [
     location: "Mirissa Beach, Pre-Dawn",
     caption: "4:45am. Worth every second. Seygo told me exactly when and where to stand.",
     likes: 3012,
-    emoji: "🌊",
+    photo: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&h=600&fit=crop&q=80",
     gradient: "from-sky-400 to-blue-700",
     size: "large",
     category: "beach",
@@ -113,7 +113,7 @@ const photos = [
     location: "Tea Plantation, Nuwara Eliya",
     caption: "Seygo connected me with a local tea farmer for a private tour. Life-changing.",
     likes: 891,
-    emoji: "🍵",
+    photo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&q=80",
     gradient: "from-lime-400 to-green-600",
     size: "small",
     category: "culture",
@@ -126,7 +126,7 @@ const photos = [
     location: "Ancient City of Polonnaruwa",
     caption: "Following Seygo's audio guide here was like having a historian in my pocket.",
     likes: 1567,
-    emoji: "🏺",
+    photo: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=600&fit=crop&q=80",
     gradient: "from-orange-400 to-red-600",
     size: "medium",
     category: "culture",
@@ -139,7 +139,7 @@ const photos = [
     location: "Colombo Street Food Tour",
     caption: "The kottu roti at this Seygo pick was honestly life-changing. 10/10 recommend.",
     likes: 1205,
-    emoji: "🥘",
+    photo: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop&q=80",
     gradient: "from-yellow-400 to-amber-600",
     size: "small",
     category: "food",
@@ -152,7 +152,7 @@ const photos = [
     location: "Yala National Park",
     caption: "Spotted a leopard on day 1. Seygo's wildlife guide made all the difference.",
     likes: 4230,
-    emoji: "🐆",
+    photo: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&h=600&fit=crop&q=80",
     gradient: "from-stone-400 to-yellow-700",
     size: "large",
     category: "wildlife",
@@ -165,7 +165,7 @@ const photos = [
     location: "Tangalle Beach",
     caption: "Found the most deserted beach stretch thanks to Seygo's hidden spots filter 🏝️",
     likes: 889,
-    emoji: "🏝️",
+    photo: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop&q=80",
     gradient: "from-cyan-400 to-teal-700",
     size: "small",
     category: "beach",
@@ -178,7 +178,7 @@ const photos = [
     location: "Kandy Esala Perahera",
     caption: "This festival is a must-see. Seygo's event calendar had the exact viewing spots.",
     likes: 2890,
-    emoji: "🎏",
+    photo: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop&q=80",
     gradient: "from-fuchsia-400 to-purple-700",
     size: "medium",
     category: "culture",
@@ -215,8 +215,11 @@ function PhotoModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Image area */}
-        <div className={`relative h-64 bg-gradient-to-br ${photo.gradient} flex items-center justify-center`}>
-          <span className="text-8xl opacity-30">{photo.emoji}</span>
+        <div className="relative h-64 overflow-hidden bg-muted">
+          {photo.photo
+            ? <img src={photo.photo} alt={photo.location} className="w-full h-full object-cover" />
+            : <div className={`absolute inset-0 bg-gradient-to-br ${photo.gradient}`} />
+          }
           <div className="absolute top-4 right-4">
             <button
               onClick={onClose}
@@ -321,11 +324,11 @@ function PhotoCard({
       style={{ minHeight: photo.size === "large" ? "400px" : "190px" }}
       onClick={onClick}
     >
-      <div className={`absolute inset-0 bg-gradient-to-br ${photo.gradient}`} />
-      <div className="absolute inset-0 flex items-center justify-center text-[6rem] opacity-20">
-        {photo.emoji}
-      </div>
-      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-300" />
+      {photo.photo
+        ? <img src={photo.photo} alt={photo.location} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+        : <div className={`absolute inset-0 bg-gradient-to-br ${photo.gradient}`} />
+      }
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300" />
 
       {/* Bottom info */}
       <div className="absolute bottom-0 left-0 right-0 p-3.5 bg-gradient-to-t from-black/70 via-black/30 to-transparent translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
