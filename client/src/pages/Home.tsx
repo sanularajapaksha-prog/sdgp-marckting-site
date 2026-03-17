@@ -10,6 +10,7 @@ import Community from "@/components/landing/Community";
 import VideoDemo from "@/components/landing/VideoDemo";
 import Comparison from "@/components/landing/Comparison";
 import Partners from "@/components/landing/Partners";
+import SocialProofTicker from "@/components/landing/SocialProofTicker";
 import Mission from "@/components/landing/Mission";
 import Reviews from "@/components/landing/Reviews";
 import FAQ from "@/components/landing/FAQ";
@@ -32,6 +33,7 @@ export default function Home() {
       <VideoDemo />
       <Comparison />
       <Partners />
+      <SocialProofTicker />
       <Mission />
       <Reviews />
       <FAQ />
