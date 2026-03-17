@@ -1,5 +1,7 @@
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
+import Stats from "@/components/landing/Stats";
+import HowItWorks from "@/components/landing/HowItWorks";
 import Features from "@/components/landing/Features";
 import Mission from "@/components/landing/Mission";
 import Reviews from "@/components/landing/Reviews";
@@ -11,6 +13,8 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-white">
       <Navbar />
       <Hero />
+      <Stats />
+      <HowItWorks />
       <Features />
       <Mission />
       <Reviews />
