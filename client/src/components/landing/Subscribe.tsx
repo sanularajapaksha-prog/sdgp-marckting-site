@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Crown, Zap, Check, ArrowRight, Shield, CreditCard,
+  Zap, Check, ArrowRight, Shield, CreditCard,
   Lock, Star, Sparkles, ChevronDown, ChevronUp, Gift, Infinity,
 } from "lucide-react";
 import { api } from "@/lib/api";
@@ -26,29 +26,6 @@ const plans = [
       "AI route optimisation",
       "Community photo sharing",
       "Priority email support",
-    ],
-  },
-  {
-    id: "elite",
-    name: "Nomad Elite",
-    price: { monthly: 9.99, yearly: 7.99 },
-    icon: Crown,
-    color: "yellow",
-    gradient: "from-yellow-500 to-amber-600",
-    glowColor: "shadow-yellow-500/30",
-    borderColor: "border-yellow-500/50",
-    bgColor: "bg-yellow-500/10",
-    badge: "Best Value",
-    features: [
-      "Everything in Wanderer",
-      "Group trip collaboration (up to 8)",
-      "Exclusive partner discounts (40%+)",
-      "Early access to new features",
-      "AI-powered personalised itineraries",
-      "Dedicated travel concierge",
-      "Priority 24/7 support",
-      "Custom trip sharing pages",
-      "Annual travel analytics report",
     ],
   },
 ];
@@ -139,7 +116,8 @@ export default function Subscribe() {
           {step === "plan" && (
             <motion.div key="plan" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
               {/* Plan cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-10">
+              <div className="flex justify-center mb-10">
+                <div className="w-full max-w-md">
                 {plans.map((plan, idx) => {
                   const Icon = plan.icon;
                   const p = billing === "yearly" ? plan.price.yearly : plan.price.monthly;
@@ -200,6 +178,7 @@ export default function Subscribe() {
                     </motion.div>
                   );
                 })}
+                </div>
               </div>
 
               {/* CTA */}
