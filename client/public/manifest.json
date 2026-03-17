@@ -1,0 +1,63 @@
+{
+  "name": "Seygo — Discover the Real Sri Lanka",
+  "short_name": "Seygo",
+  "description": "Your digital pocket guide to Sri Lanka's hidden gems. Discover authentic local spots, navigate offline, and travel safely.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf8f4",
+  "theme_color": "#1f8a5e",
+  "orientation": "portrait-primary",
+  "lang": "en-US",
+  "scope": "/",
+  "categories": ["travel", "lifestyle", "navigation"],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/opengraph.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "label": "Seygo landing page"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Discover Spots",
+      "short_name": "Discover",
+      "description": "Find hidden gems across Sri Lanka",
+      "url": "/#destinations",
+      "icons": [{ "src": "/favicon.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Join Waitlist",
+      "short_name": "Waitlist",
+      "description": "Sign up for early access to Seygo",
+      "url": "/#waitlist",
+      "icons": [{ "src": "/favicon.png", "sizes": "192x192" }]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.seygo.app",
+      "id": "com.seygo.app"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/app/seygo/id000000000"
+    }
+  ],
+  "prefer_related_applications": false
+}

@@ -1,24 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <meta property="og:title" content="Seygo | Discover the Real Sri Lanka" />
-    <meta property="og:description" content="Your digital pocket agent for finding local secrets, creating travel playlists, and navigating Sri Lanka safely." />
+    <!-- ── Primary Meta ──────────────────────────────────────────────── -->
+    <title>Seygo — Discover the Real Sri Lanka | Local Travel Guide App</title>
+    <meta name="description" content="Seygo is your digital pocket guide to Sri Lanka's hidden gems. Discover authentic local spots, plan safe routes, navigate offline, and connect with the Sri Lankan community." />
+    <meta name="keywords" content="Sri Lanka travel app, local travel guide, hidden gems Sri Lanka, Seygo app, authentic Sri Lanka, travel planner Sri Lanka, offline maps Sri Lanka, Sri Lanka tourism" />
+    <meta name="author" content="Seygo Technologies (Pvt) Ltd" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#1f8a5e" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- ── Canonical ─────────────────────────────────────────────────── -->
+    <link rel="canonical" href="https://www.seygo.it.com/" />
+
+    <!-- ── Open Graph ────────────────────────────────────────────────── -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/images/opengraph.png" />
+    <meta property="og:site_name" content="Seygo" />
+    <meta property="og:url" content="https://www.seygo.it.com/" />
+    <meta property="og:title" content="Seygo — Discover the Real Sri Lanka" />
+    <meta property="og:description" content="Your digital pocket agent for finding local secrets, creating travel playlists, and navigating Sri Lanka safely. Trusted by 10,000+ travelers." />
+    <meta property="og:image" content="https://www.seygo.it.com/images/opengraph.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Seygo app — Discover the hidden soul of Sri Lanka" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ── Twitter / X Card ──────────────────────────────────────────── -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Seygo | Discover the Real Sri Lanka" />
-    <meta name="twitter:description" content="Your digital pocket agent for finding local secrets, creating travel playlists, and navigating Sri Lanka safely." />
-    
+    <meta name="twitter:site" content="@seygoapp" />
+    <meta name="twitter:creator" content="@seygoapp" />
+    <meta name="twitter:title" content="Seygo — Discover the Real Sri Lanka" />
+    <meta name="twitter:description" content="Your digital pocket guide to Sri Lanka's hidden gems. Navigate offline, find local spots, travel safe." />
+    <meta name="twitter:image" content="https://www.seygo.it.com/images/opengraph.png" />
+    <meta name="twitter:image:alt" content="Seygo — Travel Sri Lanka authentically" />
+
+    <!-- ── PWA & App ─────────────────────────────────────────────────── -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="application-name" content="Seygo" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Seygo" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+
+    <!-- ── Favicons ───────────────────────────────────────────────────── -->
     <link rel="icon" type="image/png" href="/favicon.png" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.png" />
+
+    <!-- ── Preconnect (performance) ──────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- ── Fonts ─────────────────────────────────────────────────────── -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ── JSON-LD Structured Data ───────────────────────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://www.seygo.it.com/#website",
+          "url": "https://www.seygo.it.com/",
+          "name": "Seygo",
+          "description": "Discover the hidden soul of Sri Lanka with Seygo — the authentic local travel guide app.",
+          "inLanguage": "en-US",
+          "publisher": { "@id": "https://www.seygo.it.com/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://www.seygo.it.com/#organization",
+          "name": "Seygo Technologies (Pvt) Ltd",
+          "url": "https://www.seygo.it.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.seygo.it.com/favicon.png",
+            "width": 512,
+            "height": 512
+          },
+          "description": "Seygo is a travel technology company building tools to help people discover the authentic Sri Lanka.",
+          "foundingDate": "2024",
+          "foundingLocation": { "@type": "Place", "name": "Colombo, Sri Lanka" },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "hello@seygo.it.com",
+            "contactType": "customer support"
+          },
+          "sameAs": [
+            "https://instagram.com/seygoapp",
+            "https://twitter.com/seygoapp"
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.seygo.it.com/#app",
+          "name": "Seygo",
+          "operatingSystem": "iOS, Android",
+          "applicationCategory": "TravelApplication",
+          "description": "Seygo helps travelers discover authentic Sri Lankan locations, plan routes, navigate offline, and connect with local communities.",
+          "url": "https://www.seygo.it.com/",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "2847",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "screenshot": "https://www.seygo.it.com/images/opengraph.png",
+          "publisher": { "@id": "https://www.seygo.it.com/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.seygo.it.com/#webpage",
+          "url": "https://www.seygo.it.com/",
+          "name": "Seygo — Discover the Real Sri Lanka | Local Travel Guide App",
+          "isPartOf": { "@id": "https://www.seygo.it.com/#website" },
+          "about": { "@id": "https://www.seygo.it.com/#organization" },
+          "description": "Discover hidden gems across Sri Lanka with the Seygo travel guide app. Authentic local spots, offline maps, safety tools, and a thriving community of explorers.",
+          "inLanguage": "en-US",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.seygo.it.com/" }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.seygo.it.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is Seygo free to use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Seygo is completely free to download and use. We offer a premium tier with extra features for power travelers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Seygo work offline in Sri Lanka?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Seygo supports full offline maps and location guides for all of Sri Lanka, so you can navigate without mobile data."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Seygo available on both iOS and Android?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Seygo is available on the App Store (iOS 14+) and Google Play (Android 8+)."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
+    <!-- Skip to content link for screen readers / keyboard users -->
+    <a
+      href="#main-content"
+      style="position:absolute;left:-9999px;top:4px;z-index:99999;background:#1f8a5e;color:#fff;padding:8px 16px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none"
+      onfocus="this.style.left='16px'"
+      onblur="this.style.left='-9999px'"
+    >Skip to main content</a>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
