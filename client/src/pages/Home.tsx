@@ -7,6 +7,7 @@ import Destinations from "@/components/landing/Destinations";
 import Mission from "@/components/landing/Mission";
 import Reviews from "@/components/landing/Reviews";
 import FAQ from "@/components/landing/FAQ";
+import DownloadCTA from "@/components/landing/DownloadCTA";
 import Team from "@/components/landing/Team";
 import Footer from "@/components/landing/Footer";
 
@@ -22,6 +23,7 @@ export default function Home() {
       <Mission />
       <Reviews />
       <FAQ />
+      <DownloadCTA />
       <Team />
       <Footer />
     </div>
