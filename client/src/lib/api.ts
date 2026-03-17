@@ -3,7 +3,7 @@
 // Set VITE_API_URL in your .env file or Railway environment variables.
 export const API_BASE =
   (import.meta as any).env?.VITE_API_URL ||
-  "https://seygo-backend.up.railway.app";
+  "https://sdgp-marckting-site-production.up.railway.app";
 
 async function request<T>(
   method: string,

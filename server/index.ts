@@ -17,6 +17,7 @@ declare module "http" {
 const allowedOrigins = [
   "https://www.seygo.it.com",
   "https://seygo.it.com",
+  "https://sanularajapaksha-prog.github.io",
   "http://localhost:5000",
   "http://localhost:5173",
   ...(process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(",") : []),
