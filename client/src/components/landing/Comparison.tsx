@@ -7,9 +7,7 @@ const features = [
   { label: "Locally verified hidden gems", group: "Discovery" },
   { label: "Community-contributed spots", group: "Discovery" },
   { label: "Offline maps & navigation", group: "Navigation" },
-  { label: "Audio travel playlists", group: "Navigation" },
   { label: "Sri Lankan road-specific routing", group: "Navigation" },
-  { label: "Real-time safety alerts", group: "Safety" },
   { label: "Emergency SOS button", group: "Safety" },
   { label: "Verified local guide network", group: "Safety" },
   { label: "Cultural context & history", group: "Experience" },
@@ -33,8 +31,8 @@ const apps: {
     color: "text-primary",
     values: [
       "yes", "yes", "yes",
-      "yes", "yes", "yes",
-      "yes", "yes", "yes",
+      "yes", "yes",
+      "yes", "yes",
       "yes", "yes", "yes",
     ],
   },
@@ -45,8 +43,8 @@ const apps: {
     color: "text-blue-600",
     values: [
       "partial", "no", "no",
-      "yes", "no", "partial",
-      "no", "no", "no",
+      "yes", "partial",
+      "no", "no",
       "no", "yes", "no",
     ],
   },
@@ -54,11 +52,11 @@ const apps: {
     name: "TripAdvisor",
     tag: "Tourist reviews",
     highlight: false,
-    color: "text-green-700",
+    color: "text-green-600",
     values: [
       "partial", "no", "no",
-      "no", "no", "no",
-      "no", "no", "no",
+      "no", "no",
+      "no", "no",
       "partial", "no", "partial",
     ],
   },
@@ -66,11 +64,11 @@ const apps: {
     name: "Generic Travel App",
     tag: "Global focus",
     highlight: false,
-    color: "text-gray-500",
+    color: "text-muted-foreground",
     values: [
       "no", "no", "no",
-      "partial", "no", "no",
-      "no", "no", "no",
+      "partial", "no",
+      "no", "no",
       "no", "no", "no",
     ],
   },
@@ -85,13 +83,13 @@ function StatusIcon({ status }: { status: Status }) {
     );
   if (status === "no")
     return (
-      <div className="w-7 h-7 bg-gray-100 rounded-full flex items-center justify-center mx-auto">
-        <X className="w-3.5 h-3.5 text-gray-300" strokeWidth={2.5} />
+      <div className="w-7 h-7 bg-muted rounded-full flex items-center justify-center mx-auto">
+        <X className="w-3.5 h-3.5 text-muted-foreground/40" strokeWidth={2.5} />
       </div>
     );
   return (
-    <div className="w-7 h-7 bg-amber-50 rounded-full flex items-center justify-center mx-auto">
-      <Minus className="w-3.5 h-3.5 text-amber-400" strokeWidth={2.5} />
+    <div className="w-7 h-7 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto">
+      <Minus className="w-3.5 h-3.5 text-amber-500" strokeWidth={2.5} />
     </div>
   );
 }
@@ -101,12 +99,13 @@ export default function Comparison() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   const groups = Array.from(new Set(features.map((feature) => feature.group)));
+  const total = features.length;
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+    <section className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 right-0 w-72 h-72 bg-primary/4 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 right-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-6" ref={ref}>
@@ -136,20 +135,20 @@ export default function Comparison() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="overflow-x-auto rounded-3xl border border-gray-100 shadow-xl"
+          className="overflow-x-auto rounded-3xl border border-border shadow-xl"
         >
           <table className="w-full min-w-[640px]">
             {/* Column headers */}
             <thead>
               <tr>
-                <th className="text-left p-5 bg-gray-50 text-sm font-semibold text-muted-foreground border-b border-gray-100 w-48">
+                <th className="text-left p-5 bg-muted/40 text-sm font-semibold text-muted-foreground border-b border-border w-48">
                   Feature
                 </th>
                 {apps.map((app) => (
                   <th
                     key={app.name}
-                    className={`p-5 text-center border-b border-gray-100 ${
-                      app.highlight ? "bg-primary/5" : "bg-gray-50"
+                    className={`p-5 text-center border-b border-border ${
+                      app.highlight ? "bg-primary/5" : "bg-muted/40"
                     }`}
                   >
                     <div className="flex flex-col items-center gap-1">
@@ -175,7 +174,7 @@ export default function Comparison() {
                   <tr key={`group-${group}`}>
                     <td
                       colSpan={apps.length + 1}
-                      className="px-5 py-2.5 bg-gray-50/80 text-xs font-bold text-muted-foreground uppercase tracking-widest border-t border-gray-100"
+                      className="px-5 py-2.5 bg-muted/20 text-xs font-bold text-muted-foreground uppercase tracking-widest border-t border-border"
                     >
                       {group}
                     </td>
@@ -188,7 +187,7 @@ export default function Comparison() {
                         initial={{ opacity: 0 }}
                         animate={inView ? { opacity: 1 } : {}}
                         transition={{ delay: fi * 0.05 + 0.3 }}
-                        className="border-t border-gray-50 hover:bg-gray-50/40 transition-colors"
+                        className="border-t border-border hover:bg-muted/20 transition-colors"
                       >
                         <td className="px-5 py-4 text-sm text-foreground/80 font-medium">
                           {feature.label}
@@ -198,7 +197,7 @@ export default function Comparison() {
                           return (
                             <td
                               key={app.name}
-                              className={`py-4 text-center ${app.highlight ? "bg-primary/2" : ""}`}
+                              className={`py-4 text-center ${app.highlight ? "bg-primary/[0.02]" : ""}`}
                             >
                               <StatusIcon status={app.values[featureIndex]} />
                             </td>
@@ -212,8 +211,8 @@ export default function Comparison() {
 
             {/* Footer row — score */}
             <tfoot>
-              <tr className="border-t-2 border-gray-200">
-                <td className="px-5 py-4 text-sm font-bold text-foreground bg-gray-50">
+              <tr className="border-t-2 border-border">
+                <td className="px-5 py-4 text-sm font-bold text-foreground bg-muted/40">
                   Total Score
                 </td>
                 {apps.map((app) => {
@@ -222,10 +221,10 @@ export default function Comparison() {
                   return (
                     <td
                       key={app.name}
-                      className={`py-4 text-center ${app.highlight ? "bg-primary/5" : "bg-gray-50"}`}
+                      className={`py-4 text-center ${app.highlight ? "bg-primary/5" : "bg-muted/40"}`}
                     >
                       <span className={`text-xl font-bold font-serif ${app.color}`}>
-                        {score + partial * 0.5}/12
+                        {score + partial * 0.5}/{total}
                       </span>
                     </td>
                   );
