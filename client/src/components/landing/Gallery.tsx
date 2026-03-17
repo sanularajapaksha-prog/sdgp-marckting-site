@@ -17,8 +17,8 @@ import {
 const photos = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1567183803791-0c69e85b6cbf?w=800&h=600&fit=crop&q=85",
-    thumb: "https://images.unsplash.com/photo-1567183803791-0c69e85b6cbf?w=400&h=300&fit=crop&q=75",
+    src: "https://images.unsplash.com/photo-1526397751294-331021109fbd?w=800&h=600&fit=crop&q=85",
+    thumb: "https://images.unsplash.com/photo-1526397751294-331021109fbd?w=400&h=300&fit=crop&q=75",
     title: "Sigiriya at Dawn",
     location: "Cultural Triangle",
     photographer: "Kavindi P.",
@@ -28,8 +28,8 @@ const photos = [
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1526397751294-331021109fbd?w=800&h=600&fit=crop&q=85",
-    thumb: "https://images.unsplash.com/photo-1526397751294-331021109fbd?w=400&h=300&fit=crop&q=75",
+    src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&q=85",
+    thumb: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop&q=75",
     title: "Nine Arch Bridge",
     location: "Ella, Hill Country",
     photographer: "Roshan F.",
