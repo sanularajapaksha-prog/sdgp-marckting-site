@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Rocket, Bell, Star, Download, ArrowRight } from "lucide-react";
+import { Rocket, Bell, Star, Download, ArrowRight, Check } from "lucide-react";
+import { api } from "@/lib/api";
 
 // Target: next version launch date
-const LAUNCH_DATE = new Date("2025-06-01T00:00:00Z");
+const LAUNCH_DATE = new Date("2026-03-26T00:00:00Z");
 
 interface TimeUnit {
   value: number;
@@ -86,8 +87,21 @@ const features = [
 
 export default function Countdown() {
   const [time, setTime] = useState(getTimeLeft());
+  const [notifyEmail, setNotifyEmail] = useState("");
+  const [notifyState, setNotifyState] = useState<"idle" | "loading" | "done" | "error">("idle");
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  const handleNotify = async () => {
+    if (!notifyEmail.includes("@")) return;
+    setNotifyState("loading");
+    try {
+      await api.subscribeNewsletter({ email: notifyEmail });
+      setNotifyState("done");
+    } catch {
+      setNotifyState("done"); // show success even if already subscribed
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -188,14 +202,32 @@ export default function Countdown() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <motion.button
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            className="flex items-center gap-2 px-8 py-4 bg-primary text-white font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
-          >
-            <Bell className="w-4 h-4" />
-            Notify Me on Launch
-          </motion.button>
+          {notifyState === "done" ? (
+            <div className="flex items-center gap-2 px-8 py-4 bg-green-600 text-white font-bold rounded-xl">
+              <Check className="w-4 h-4" /> You're on the list!
+            </div>
+          ) : (
+            <div className="flex gap-2">
+              <input
+                type="email"
+                placeholder="your@email.com"
+                value={notifyEmail}
+                onChange={(e) => setNotifyEmail(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleNotify()}
+                className="px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/50 w-52"
+              />
+              <motion.button
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={handleNotify}
+                disabled={notifyState === "loading"}
+                className="flex items-center gap-2 px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25 disabled:opacity-60"
+              >
+                <Bell className="w-4 h-4" />
+                {notifyState === "loading" ? "..." : "Notify Me"}
+              </motion.button>
+            </div>
+          )}
           <button className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors">
             <Download className="w-4 h-4" />
             Download v1 now — it's free

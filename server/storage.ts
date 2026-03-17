@@ -10,84 +10,68 @@ import {
   type Review, type InsertReview,
 } from "@shared/schema";
 
-// ── Interface ─────────────────────────────────────────────────────────────────
 export interface IStorage {
-  // Users
   getUser(id: string): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
-  // Waitlist
   addToWaitlist(entry: InsertWaitlist): Promise<WaitlistEntry>;
   getWaitlistCount(): Promise<number>;
   isEmailOnWaitlist(email: string): Promise<boolean>;
-  // Newsletter
   subscribeNewsletter(entry: InsertNewsletter): Promise<NewsletterSubscriber>;
   isEmailSubscribed(email: string): Promise<boolean>;
-  // Contact
   createContact(contact: InsertContact): Promise<ContactMessage>;
-  // Reviews
   createReview(review: InsertReview): Promise<Review>;
   getApprovedReviews(): Promise<Review[]>;
 }
 
-// ── PostgreSQL Storage (production) ──────────────────────────────────────────
+// ── PostgreSQL Storage ─────────────────────────────────────────────────────────
 export class DbStorage implements IStorage {
-  async getUser(id: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.id, id));
+  async getUser(id: string) {
+    const [user] = await db!.select().from(users).where(eq(users.id, id));
     return user;
   }
-
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.username, username));
+  async getUserByUsername(username: string) {
+    const [user] = await db!.select().from(users).where(eq(users.username, username));
     return user;
   }
-
   async createUser(insertUser: InsertUser): Promise<User> {
-    const [user] = await db.insert(users).values(insertUser).returning();
+    const [user] = await db!.insert(users).values(insertUser).returning();
     return user;
   }
-
   async addToWaitlist(entry: InsertWaitlist): Promise<WaitlistEntry> {
-    const [row] = await db.insert(waitlist).values(entry).returning();
+    const [row] = await db!.insert(waitlist).values(entry).returning();
     return row;
   }
-
   async getWaitlistCount(): Promise<number> {
-    const rows = await db.select().from(waitlist);
+    const rows = await db!.select().from(waitlist);
     return rows.length;
   }
-
   async isEmailOnWaitlist(email: string): Promise<boolean> {
-    const [row] = await db.select().from(waitlist).where(eq(waitlist.email, email));
+    const [row] = await db!.select().from(waitlist).where(eq(waitlist.email, email));
     return !!row;
   }
-
   async subscribeNewsletter(entry: InsertNewsletter): Promise<NewsletterSubscriber> {
-    const [row] = await db.insert(newsletter).values(entry).returning();
+    const [row] = await db!.insert(newsletter).values(entry).returning();
     return row;
   }
-
   async isEmailSubscribed(email: string): Promise<boolean> {
-    const [row] = await db.select().from(newsletter).where(eq(newsletter.email, email));
+    const [row] = await db!.select().from(newsletter).where(eq(newsletter.email, email));
     return !!row;
   }
-
   async createContact(contact: InsertContact): Promise<ContactMessage> {
-    const [row] = await db.insert(contacts).values(contact).returning();
+    const [row] = await db!.insert(contacts).values(contact).returning();
     return row;
   }
-
   async createReview(review: InsertReview): Promise<Review> {
-    const [row] = await db.insert(reviews).values(review).returning();
+    const [row] = await db!.insert(reviews).values(review).returning();
     return row;
   }
-
   async getApprovedReviews(): Promise<Review[]> {
-    return db.select().from(reviews).where(eq(reviews.approved, true));
+    return db!.select().from(reviews).where(eq(reviews.approved, true));
   }
 }
 
-// ── In-memory Storage (fallback / dev without DB) ────────────────────────────
+// ── In-memory Storage (fallback when no DB) ────────────────────────────────────
 export class MemStorage implements IStorage {
   private users = new Map<string, User>();
   private waitlistEntries = new Map<string, WaitlistEntry>();
@@ -132,12 +116,8 @@ export class MemStorage implements IStorage {
     this.reviewList.push(row);
     return row;
   }
-  async getApprovedReviews() {
-    return this.reviewList.filter((r) => r.approved);
-  }
+  async getApprovedReviews() { return this.reviewList.filter((r) => r.approved); }
 }
 
-// Use DB in production, MemStorage in dev without DATABASE_URL
-export const storage: IStorage = process.env.DATABASE_URL
-  ? new DbStorage()
-  : new MemStorage();
+// Use DB if available, otherwise MemStorage
+export const storage: IStorage = db ? new DbStorage() : new MemStorage();
