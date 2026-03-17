@@ -21,6 +21,7 @@ import Contact from "@/components/landing/Contact";
 import Countdown from "@/components/landing/Countdown";
 import Newsletter from "@/components/landing/Newsletter";
 import DownloadCTA from "@/components/landing/DownloadCTA";
+import TripPlanner from "@/components/landing/TripPlanner";
 import Team from "@/components/landing/Team";
 import Footer from "@/components/landing/Footer";
 
@@ -50,6 +51,7 @@ export default function Home() {
       <Countdown />
       <Newsletter />
       <DownloadCTA />
+      <TripPlanner />
       <Team />
       <Footer />
     </div>
