@@ -11,13 +11,12 @@ const destinations = [
     region: "Uva Province",
     category: "Adventure",
     description: "A hidden hiking trail that rewards with panoramic misty mountain views above the clouds.",
-    emoji: "⛰️",
+    photo: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=520&fit=crop&q=80",
     tags: ["Hiking", "Sunrise", "Views"],
     verified: true,
     likes: 1243,
     photos: 89,
     difficulty: "Moderate",
-    bgColor: "from-emerald-600 to-teal-800",
     accent: "bg-emerald-500",
   },
   {
@@ -26,13 +25,12 @@ const destinations = [
     region: "Southern Coast",
     category: "Beach",
     description: "A crescent-shaped bay hidden behind coconut groves — still undiscovered by mass tourism.",
-    emoji: "🏖️",
+    photo: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=520&fit=crop&q=80",
     tags: ["Surfing", "Snorkeling", "Sunset"],
     verified: true,
     likes: 987,
     photos: 234,
     difficulty: "Easy",
-    bgColor: "from-sky-500 to-blue-800",
     accent: "bg-sky-500",
   },
   {
@@ -41,13 +39,12 @@ const destinations = [
     region: "Central Province",
     category: "Nature",
     description: "UNESCO-listed wilderness with endemic wildlife, cloud forests, and ancient walking paths.",
-    emoji: "🌿",
+    photo: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&h=520&fit=crop&q=80",
     tags: ["UNESCO", "Wildlife", "Trekking"],
     verified: true,
     likes: 756,
     photos: 167,
     difficulty: "Challenging",
-    bgColor: "from-green-600 to-emerald-900",
     accent: "bg-green-500",
   },
   {
@@ -56,13 +53,12 @@ const destinations = [
     region: "North Central",
     category: "Culture",
     description: "Over 2,000 years old — five caves filled with 150+ statues of Buddha and ancient murals.",
-    emoji: "🏛️",
+    photo: "https://images.unsplash.com/photo-1464817739973-0128fe3326ee?w=800&h=520&fit=crop&q=80",
     tags: ["History", "UNESCO", "Architecture"],
     verified: true,
     likes: 1102,
     photos: 312,
     difficulty: "Easy",
-    bgColor: "from-amber-600 to-orange-900",
     accent: "bg-amber-500",
   },
   {
@@ -71,13 +67,12 @@ const destinations = [
     region: "Northern Province",
     category: "Food",
     description: "Authentic Northern Sri Lankan cuisine, spices, and street food — a sensory explosion after dark.",
-    emoji: "🍛",
+    photo: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=520&fit=crop&q=80",
     tags: ["Local Food", "Night Market", "Culture"],
     verified: true,
     likes: 642,
     photos: 98,
     difficulty: "Easy",
-    bgColor: "from-rose-600 to-pink-900",
     accent: "bg-rose-500",
   },
   {
@@ -86,13 +81,12 @@ const destinations = [
     region: "Sabaragamuwa",
     category: "Nature",
     description: "Sri Lanka's last viable area of primary tropical rainforest — home to 50% of endemic species.",
-    emoji: "🌳",
+    photo: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=520&fit=crop&q=80",
     tags: ["Rainforest", "Birds", "Endemic"],
     verified: true,
     likes: 834,
     photos: 145,
     difficulty: "Moderate",
-    bgColor: "from-teal-600 to-green-900",
     accent: "bg-teal-500",
   },
 ];
@@ -116,12 +110,13 @@ function DestCard({ dest, index }: { dest: typeof destinations[0]; index: number
       transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
       className="group relative bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-400"
     >
-      {/* Image / Color block */}
-      <div className={`relative h-52 bg-gradient-to-br ${dest.bgColor} overflow-hidden`}>
-        {/* Emoji as visual placeholder */}
-        <div className="absolute inset-0 flex items-center justify-center text-7xl opacity-30">
-          {dest.emoji}
-        </div>
+      {/* Image block */}
+      <div className="relative h-52 overflow-hidden bg-muted">
+        <img
+          src={dest.photo}
+          alt={dest.name}
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
         {/* Top row inside image */}
