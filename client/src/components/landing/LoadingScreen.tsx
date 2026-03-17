@@ -155,70 +155,44 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               transition={{ duration: 1.2, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
               className="relative mb-8"
             >
-              {/* Pulsing rings */}
+              {/* Pulsing glow rings */}
               <motion.div
-                animate={{ scale: [1, 1.6], opacity: [0.3, 0] }}
-                transition={{ repeat: Infinity, duration: 2, ease: "easeOut", delay: 0.8 }}
-                className="absolute inset-0 rounded-[28px] border border-emerald-400/40"
-                style={{ margin: "-16px" }}
+                animate={{ scale: [1, 1.5], opacity: [0.25, 0] }}
+                transition={{ repeat: Infinity, duration: 2.2, ease: "easeOut", delay: 0.8 }}
+                className="absolute inset-0 rounded-3xl border border-emerald-400/30"
+                style={{ margin: "-20px" }}
               />
               <motion.div
-                animate={{ scale: [1, 1.9], opacity: [0.2, 0] }}
-                transition={{ repeat: Infinity, duration: 2.4, ease: "easeOut", delay: 1.2 }}
-                className="absolute inset-0 rounded-[32px] border border-emerald-300/20"
-                style={{ margin: "-24px" }}
+                animate={{ scale: [1, 1.8], opacity: [0.15, 0] }}
+                transition={{ repeat: Infinity, duration: 2.8, ease: "easeOut", delay: 1.3 }}
+                className="absolute inset-0 rounded-3xl border border-emerald-300/15"
+                style={{ margin: "-36px" }}
               />
 
-              {/* Logo card */}
-              <motion.div
-                initial={{ scale: 0.5, rotate: -12, opacity: 0 }}
-                animate={logoReady ? { scale: 1, rotate: 0, opacity: 1 } : {}}
+              {/* Logo image */}
+              <motion.img
+                src="/logo.jpg"
+                alt="Seygo"
+                initial={{ scale: 0.6, opacity: 0, y: 10 }}
+                animate={logoReady ? { scale: 1, opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.9, delay: 0.1, type: "spring", stiffness: 180, damping: 18 }}
-                className="relative w-24 h-24 rounded-[28px] flex items-center justify-center"
-                style={{
-                  background: "linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%)",
-                  boxShadow: "0 0 60px rgba(16,185,129,0.5), 0 20px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2)",
-                }}
-              >
-                {/* Inner shine */}
-                <div
-                  className="absolute inset-0 rounded-[28px] opacity-40"
-                  style={{
-                    background: "linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 60%)",
-                  }}
-                />
-                <span
-                  className="relative text-white font-bold text-5xl"
-                  style={{ fontFamily: "Georgia, serif", textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}
-                >
-                  S
-                </span>
-              </motion.div>
+                className="relative h-16 w-auto"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
             </motion.div>
 
-            {/* Brand name */}
+            {/* Tagline */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={logoReady ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center gap-1 mb-16"
             >
-              <h1
-                className="text-white font-bold tracking-wide"
-                style={{
-                  fontFamily: "Georgia, 'Times New Roman', serif",
-                  fontSize: "2.75rem",
-                  letterSpacing: "0.04em",
-                  textShadow: "0 0 40px rgba(52,211,153,0.25)",
-                }}
-              >
-                Seygo
-              </h1>
               <motion.p
                 initial={{ opacity: 0, letterSpacing: "0.4em" }}
                 animate={logoReady ? { opacity: 1, letterSpacing: "0.25em" } : {}}
-                transition={{ duration: 1, delay: 0.75 }}
-                className="text-emerald-400/70 text-xs font-semibold uppercase"
+                transition={{ duration: 1, delay: 0.6 }}
+                className="text-emerald-400/70 text-xs font-semibold uppercase mt-3"
               >
                 Discover the Real Sri Lanka
               </motion.p>

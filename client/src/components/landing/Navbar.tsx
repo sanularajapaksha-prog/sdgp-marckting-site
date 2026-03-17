@@ -147,7 +147,7 @@ export default function Navbar() {
         className={cn(
           "transition-all duration-300 border-b",
           scrolled
-            ? "bg-white/90 backdrop-blur-lg py-3 shadow-md border-gray-100/80"
+            ? "bg-background/90 backdrop-blur-lg py-3 shadow-md border-border/60"
             : "bg-transparent py-5 border-transparent"
         )}
         initial={{ y: -100 }}
@@ -159,18 +159,15 @@ export default function Navbar() {
           <a
             href="#"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex items-center gap-2.5 group"
+            className="flex items-center group"
           >
-            <motion.div
-              whileHover={{ scale: 1.05, rotate: 3 }}
+            <motion.img
+              src="/logo.jpg"
+              alt="Seygo"
+              whileHover={{ scale: 1.04 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="w-9 h-9 bg-primary rounded-xl flex items-center justify-center text-white font-sans text-lg font-bold shadow-md shadow-primary/30"
-            >
-              S
-            </motion.div>
-            <span className="text-2xl font-serif font-bold text-primary group-hover:opacity-80 transition-opacity">
-              Seygo
-            </span>
+              className="h-10 w-auto dark:invert group-hover:opacity-80 transition-opacity"
+            />
           </a>
 
           {/* Desktop Nav Links */}
