@@ -8,6 +8,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import LoadingScreen from "@/components/landing/LoadingScreen";
 import CookieBanner from "@/components/landing/CookieBanner";
+import { ThemeProvider } from "@/components/landing/ThemeToggle";
 
 function Router() {
   return (
@@ -23,16 +24,18 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <LoadingScreen onComplete={() => setLoaded(true)} />
-        {loaded && (
-          <>
-            <Router />
-            <CookieBanner />
-          </>
-        )}
-      </TooltipProvider>
+      <ThemeProvider>
+        <TooltipProvider>
+          <Toaster />
+          <LoadingScreen onComplete={() => setLoaded(true)} />
+          {loaded && (
+            <>
+              <Router />
+              <CookieBanner />
+            </>
+          )}
+        </TooltipProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

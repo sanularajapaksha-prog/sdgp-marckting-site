@@ -3,6 +3,7 @@ import { Menu, X, Download, ChevronDown, Star, Bell, ArrowRight, Globe, Smartpho
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import ThemeToggle from "@/components/landing/ThemeToggle";
 
 const navLinks = [
   {
@@ -273,6 +274,10 @@ export default function Navbar() {
               <span className="font-semibold text-foreground">4.9</span>
               <span>· 10k+ downloads</span>
             </div>
+
+            <div className="w-px h-5 bg-gray-200" />
+
+            <ThemeToggle compact />
 
             <div className="w-px h-5 bg-gray-200" />
 
