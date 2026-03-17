@@ -9,6 +9,7 @@ import Home from "@/pages/Home";
 import LoadingScreen from "@/components/landing/LoadingScreen";
 import CookieBanner from "@/components/landing/CookieBanner";
 import { ThemeProvider } from "@/components/landing/ThemeToggle";
+import ScrollProgress from "@/components/landing/ScrollProgress";
 
 function Router() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <LoadingScreen onComplete={() => setLoaded(true)} />
           {loaded && (
             <>
+              <ScrollProgress />
               <Router />
               <CookieBanner />
             </>
