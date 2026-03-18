@@ -19,12 +19,10 @@ import Waitlist from "@/components/landing/Waitlist";
 import FAQ from "@/components/landing/FAQ";
 import Contact from "@/components/landing/Contact";
 import Countdown from "@/components/landing/Countdown";
-import Newsletter from "@/components/landing/Newsletter";
 import DownloadCTA from "@/components/landing/DownloadCTA";
 import TripPlanner from "@/components/landing/TripPlanner";
 import Blog from "@/components/landing/Blog";
 import Pricing from "@/components/landing/Pricing";
-import Gallery from "@/components/landing/Gallery";
 import LiveFeed from "@/components/landing/LiveFeed";
 import AiDesigner from "@/components/landing/AiDesigner";
 import Team from "@/components/landing/Team";
@@ -54,12 +52,10 @@ export default function Home() {
       <FAQ />
       <Contact />
       <Countdown />
-      <Newsletter />
       <DownloadCTA />
       <TripPlanner />
       <Blog />
       <Pricing />
-      <Gallery />
       <LiveFeed />
       <AiDesigner />
       <Team />

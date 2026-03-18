@@ -190,38 +190,6 @@ export default function Awards() {
           </p>
         </motion.div>
 
-        {/* Main award — hero card */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="max-w-2xl mx-auto mb-10 relative bg-gradient-to-br from-amber-400 via-amber-500 to-orange-500 rounded-3xl p-8 md:p-10 text-white overflow-hidden shadow-2xl shadow-amber-300/40"
-        >
-          {/* Shimmer */}
-          <motion.div
-            animate={{ x: ["-100%", "200%"] }}
-            transition={{ repeat: Infinity, duration: 3, ease: "linear", repeatDelay: 2 }}
-            className="absolute inset-0 w-1/3 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 pointer-events-none"
-          />
-          <div className="flex items-start gap-6 relative z-10">
-            <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shrink-0">
-              <Trophy className="w-10 h-10 text-white" />
-            </div>
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full mb-3 inline-block">
-                Grand Prize · 2025
-              </span>
-              <h3 className="text-2xl md:text-3xl font-serif font-bold mb-2">
-                Best Travel App of the Year
-              </h3>
-              <p className="text-white/80 text-sm leading-relaxed">
-                Sri Lanka Tourism Awards — the most prestigious recognition in the island's
-                travel and hospitality industry. Judged by 200+ industry professionals.
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Award Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {awards.slice(1).map((award, i) => (

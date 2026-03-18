@@ -6,7 +6,6 @@ import {
   Shield,
   Compass,
   Heart,
-  Camera,
   ArrowRight,
   Check,
   Zap,
@@ -78,29 +77,15 @@ const features = [
     tag: "Built for SL",
   },
   {
-    category: "navigate",
-    icon: Camera,
-    title: "Photo Spots",
-    description:
-      "Discover the exact angles that make Sri Lanka's landscapes breathtaking. Find undiscovered viewpoints and perfect golden-hour locations.",
-    bullets: [
-      "GPS-pinned shot locations",
-      "Best time of day indicators",
-      "Community photo gallery",
-    ],
-    accent: "amber",
-    tag: "Insta-worthy",
-  },
-  {
     category: "safety",
     icon: Shield,
     title: "Safety First",
     description:
-      "Real-time safety alerts, verified emergency contacts, weather advisories, and a trusted community of guides to keep you safe.",
+      "Verified emergency contacts, weather advisories, and a trusted community of guides to keep you safe throughout your journey.",
     bullets: [
-      "Real-time alert system",
       "One-tap emergency call",
       "Verified guide network",
+      "Weather & road advisories",
     ],
     accent: "emerald",
     tag: "Essential",

@@ -12,7 +12,7 @@ const navLinks = [
     dropdown: [
       { label: "Hidden Gems", desc: "Discover secret locations", icon: "🗺️" },
       { label: "Travel Playlists", desc: "Curated audio journeys", icon: "🎵" },
-      { label: "Safety First", desc: "Real-time alerts & guides", icon: "🛡️" },
+      { label: "Safety First", desc: "Emergency contacts & guides", icon: "🛡️" },
       { label: "Smart Navigation", desc: "Offline Sri Lankan maps", icon: "📍" },
     ],
   },
@@ -24,7 +24,6 @@ const navLinks = [
 
 const announcements = [
   "🎉 Seygo is now available on the App Store & Google Play!",
-  "🏆 Winner — Best Travel App, Sri Lanka Tourism Awards 2025",
   "📍 New: 200+ verified hidden gems added this month",
 ];
 
