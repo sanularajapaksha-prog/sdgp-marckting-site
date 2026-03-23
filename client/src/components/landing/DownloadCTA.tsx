@@ -158,7 +158,7 @@ export default function DownloadCTA() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/40 aspect-[4/3]">
               <img
-                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&h=680&fit=crop&q=85"
+                src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Sigiriya.jpg"
                 alt="Sri Lanka landscape"
                 className="w-full h-full object-cover"
               />

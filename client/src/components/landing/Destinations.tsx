@@ -7,26 +7,27 @@ const categories = ["All", "Nature", "Culture", "Beach", "Adventure", "Food"];
 const destinations = [
   {
     id: 1,
-    name: "Ella Rock",
-    region: "Uva Province",
+    name: "Adam's Peak",
+    region: "Sabaragamuwa",
     category: "Adventure",
-    description: "A hidden hiking trail that rewards with panoramic misty mountain views above the clouds.",
-    photo: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=520&fit=crop&q=85",
-    tags: ["Hiking", "Sunrise", "Views"],
+    description: "Sri Lanka's most sacred mountain — pilgrims climb 5,500 steps by torchlight to witness a legendary sunrise.",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Adam%27s_Peak_-_February_2020_%284%29.jpg",
+
+    tags: ["Pilgrimage", "Sunrise", "Hiking"],
     verified: true,
     likes: 1243,
     photos: 89,
-    difficulty: "Moderate",
+    difficulty: "Challenging",
     accent: "bg-emerald-500",
   },
   {
     id: 2,
-    name: "Hiriketiya Beach",
+    name: "Unawatuna Beach",
     region: "Southern Coast",
     category: "Beach",
-    description: "A crescent-shaped bay hidden behind coconut groves — still undiscovered by mass tourism.",
-    photo: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=520&fit=crop&q=85",
-    tags: ["Surfing", "Snorkeling", "Sunset"],
+    description: "A golden crescent of sand sheltered by a coral reef — calm turquoise waters perfect for swimming.",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Unawatuna_beach_sri_lanka.jpg",
+    tags: ["Swimming", "Snorkeling", "Sunset"],
     verified: true,
     likes: 987,
     photos: 234,
@@ -35,16 +36,17 @@ const destinations = [
   },
   {
     id: 3,
-    name: "Knuckles Range",
+    name: "Horton Plains",
     region: "Central Province",
     category: "Nature",
-    description: "UNESCO-listed wilderness with endemic wildlife, cloud forests, and ancient walking paths.",
-    photo: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&h=520&fit=crop&q=85",
-    tags: ["UNESCO", "Wildlife", "Trekking"],
+    description: "Walk to World's End — a sheer 1,200m cliff drop into a vast valley at the heart of a cloud-forest plateau.",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/8/8e/World%27s_End%2C_Horton_Plains_National_Park%2C_Sri_Lanka.jpg",
+
+    tags: ["Trekking", "Wildlife", "UNESCO"],
     verified: true,
     likes: 756,
     photos: 167,
-    difficulty: "Challenging",
+    difficulty: "Moderate",
     accent: "bg-green-500",
   },
   {
@@ -52,8 +54,8 @@ const destinations = [
     name: "Dambulla Cave Temple",
     region: "North Central",
     category: "Culture",
-    description: "Over 2,000 years old — five caves filled with 150+ statues of Buddha and ancient murals.",
-    photo: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=520&fit=crop&q=85",
+    description: "Over 2,000 years old — five caves filled with 150+ golden Buddha statues and ancient ceiling murals.",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/3/30/Buddha_Statues_in_Dambulla%2C_Sri_Lanka_01.jpg",
     tags: ["History", "UNESCO", "Architecture"],
     verified: true,
     likes: 1102,
@@ -63,12 +65,12 @@ const destinations = [
   },
   {
     id: 5,
-    name: "Jaffna Night Market",
-    region: "Northern Province",
-    category: "Food",
-    description: "Authentic Northern Sri Lankan cuisine, spices, and street food — a sensory explosion after dark.",
-    photo: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=520&fit=crop&q=85",
-    tags: ["Local Food", "Night Market", "Culture"],
+    name: "Ruwanwelisaya Stupa",
+    region: "Anuradhapura",
+    category: "Culture",
+    description: "A 2,000-year-old white dagoba standing 103 meters tall — one of the greatest monuments in Buddhist history.",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Ruwanwelisaya_Stupa_Anuradhapura.jpg",
+    tags: ["History", "UNESCO", "Buddhism"],
     verified: true,
     likes: 642,
     photos: 98,
@@ -77,16 +79,16 @@ const destinations = [
   },
   {
     id: 6,
-    name: "Sinharaja Forest",
-    region: "Sabaragamuwa",
-    category: "Nature",
-    description: "Sri Lanka's last viable area of primary tropical rainforest — home to 50% of endemic species.",
-    photo: "https://images.unsplash.com/photo-1526397751294-331021109fbd?w=800&h=520&fit=crop&q=85",
-    tags: ["Rainforest", "Birds", "Endemic"],
+    name: "Tangalle Beach",
+    region: "Southern Coast",
+    category: "Beach",
+    description: "Sri Lanka's most unspoiled southern shore — wide empty sands, turquoise lagoons, and sea turtle nesting grounds.",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Goyambokka_Beach%2C_Tangalle%2C_Sri_Lanka.jpg",
+    tags: ["Turtles", "Lagoon", "Peaceful"],
     verified: true,
     likes: 834,
     photos: 145,
-    difficulty: "Moderate",
+    difficulty: "Easy",
     accent: "bg-teal-500",
   },
 ];
@@ -126,9 +128,8 @@ function DestCard({ dest, index }: { dest: typeof destinations[0]; index: number
           </span>
           <button
             onClick={() => setLiked(!liked)}
-            className={`w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-sm transition-all ${
-              liked ? "bg-rose-500 text-white" : "bg-white/20 text-white hover:bg-rose-500"
-            }`}
+            className={`w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-sm transition-all ${liked ? "bg-rose-500 text-white" : "bg-white/20 text-white hover:bg-rose-500"
+              }`}
           >
             <Heart className={`w-4 h-4 ${liked ? "fill-white" : ""}`} />
           </button>
@@ -182,9 +183,9 @@ function DestCard({ dest, index }: { dest: typeof destinations[0]; index: number
               <Camera className="w-3.5 h-3.5 text-primary" /> {dest.photos}
             </span>
           </div>
-          <button className="flex items-center gap-1 text-xs font-semibold text-primary hover:gap-2 transition-all">
-            Explore <ArrowRight className="w-3.5 h-3.5" />
-          </button>
+          <span className="flex items-center gap-1 text-xs font-semibold text-primary">
+            <MapPin className="w-3.5 h-3.5" /> {dest.region}
+          </span>
         </div>
       </div>
     </motion.div>
@@ -241,11 +242,10 @@ export default function Destinations() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-                activeCategory === cat
-                  ? "bg-primary text-white shadow-md shadow-primary/25"
-                  : "bg-white text-muted-foreground hover:text-primary hover:bg-primary/5 border border-gray-200"
-              }`}
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${activeCategory === cat
+                ? "bg-primary text-white shadow-md shadow-primary/25"
+                : "bg-white text-muted-foreground hover:text-primary hover:bg-primary/5 border border-gray-200"
+                }`}
             >
               {cat}
             </button>
